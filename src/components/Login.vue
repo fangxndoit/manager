@@ -1,12 +1,28 @@
 <script setup>
 import Welcome from './Welcome.vue'
-import { ref } from 'vue'
+import { ref, onMounted, getCurrentInstance } from 'vue'
 import { useRouter } from 'vue-router'
 
+const { proxy } = getCurrentInstance()
 const router = useRouter()
 const goHome = () => {
   router.push('/welcome')
 }
+
+onMounted(()=>{
+  // proxy.$request({
+  //   method: 'get',
+  //   url: '/login',
+  //   data: {
+  //     name: 'jack'
+  //   }
+  // }).then((res)=>{
+  //   console.log(res)
+  // })
+  proxy.$request.get('/login', {name: 'jack'},{mock: true, loading: true}).then((res)=>{
+    console.log(res)
+  })
+})
 </script>
 
 <template>
