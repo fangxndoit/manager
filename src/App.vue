@@ -6,7 +6,9 @@ import HelloWorld from './components/HelloWorld.vue'
   <router-view></router-view>
 </template>
 
-<style scoped>
+<style lang="scss">
+@import './assets/style/reset.css';
+@import './assets/style/index.scss';
 .logo {
   height: 6em;
   padding: 1.5em;
